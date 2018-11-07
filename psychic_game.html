@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Guess what Letter I'm Thinking of:</p>
+    <p>You Chose:
+        <span id="user-choice"></span>
+    </p>
+    
+    <p>Wins:
+        <span id="wins">0</span>
+    </p>
+    <p>Losses:
+        <span id="losses">0</span>
+    </p>
+    <p>Guesses Left:
+        <span id="guesses">9</span>
+    </p>
+    
+    <script>
+        
+        var userChoiceElem = document.getElementById("user-choice");
+        
+        var winsElem = document.getElementById("wins");
+        var lossesElem = document.getElementById("losses");
+        var guessesElem = document.getElementById("guesses");
+
+        var wins = 0;
+        var guesses = 9;
+        var losses = 0;
+
+        var myArray = [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+        ];
+
+
+
+    
+
+        
+        document.onkeyup = function (e) {
+            var userInput = e.key;
+            var randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+
+            if (userInput !== randomItem) {
+                guesses--
+            }
+
+            if (guesses === 0) {
+                losses++
+                guesses = 9
+            }
+
+            
+            else if (userInput === randomItem) {
+                
+
+                wins++
+            }
+            
+            userChoiceElem.textContent = userInput;
+            
+            winsElem.textContent = wins;
+            lossesElem.textContent = losses;
+            guessesElem.textContent = guesses;
+            
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
