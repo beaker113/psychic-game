@@ -64,33 +64,62 @@
             "y",
             "z",
         ];
+    var keys = [];
+    var randomItem
 
+      var letter = function() {
+        randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+       }
+       
 
+document.onkeydown = function (e) {
+  var keyPress;
 
-    
+  if (typeof event !== 'undefined') {
+    keyPress = event.keyCode;
+  }
+  else if (e) {
+    keyPress = e.which;
+  }
 
-        
+  keys.push(String.fromCharCode(keyPress));
+
+  return false;  
+};
+
+        letter();
+        console.log(randomItem)
         document.onkeyup = function (e) {
             var userInput = e.key;
-            var randomItem = myArray[Math.floor(Math.random() * myArray.length)];
+            
 
             if (userInput !== randomItem) {
-                guesses--
+                guesses--;
+            
             }
 
             if (guesses === 0) {
-                losses++
-                guesses = 9
-            }
-
-            
-            else if (userInput === randomItem) {
+                losses++;
+                guesses = 9;
+                keys.splice(0,keys.length)
+                letter();
                 
+            }
 
-                wins++
+            
+            if (userInput === randomItem) {
+                console.log(randomItem)
+                
+                wins++;
+                guesses = 9;
+                keys.splice(0,keys.length)
+                letter();
+                console.log(randomItem)
             }
             
-            userChoiceElem.textContent = userInput;
+           
+
+            userChoiceElem.textContent = keys;
             
             winsElem.textContent = wins;
             lossesElem.textContent = losses;
