@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <p>Guess what Letter I'm Thinking of:</p>
-    <p>You Chose:
-        <span id="user-choice"></span>
-    </p>
-    
-    <p>Wins:
-        <span id="wins">0</span>
-    </p>
-    <p>Losses:
-        <span id="losses">0</span>
-    </p>
-    <p>Guesses Left:
-        <span id="guesses">9</span>
-    </p>
-    
-    <script>
-        
-        var userChoiceElem = document.getElementById("user-choice");
+var userChoiceElem = document.getElementById("user-choice");
         
         var winsElem = document.getElementById("wins");
         var lossesElem = document.getElementById("losses");
@@ -130,7 +102,3 @@ document.onkeydown = function (e) {
 
 
 
-    </script>
-</body>
-
-</html>
