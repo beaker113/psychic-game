@@ -73,7 +73,7 @@ document.onkeydown = function (e) {
             if (guesses === 0) {
                 losses++;
                 guesses = 9;
-                keys.splice(0,keys.length)
+                keys = [];
                 letter();
                 
             }
